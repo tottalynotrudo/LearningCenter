@@ -8,6 +8,7 @@
 	},
 	"scripts": {
 		"dev": "node src/index.js",
+		"postinstall": "cd node_modules/@mercuryworkshop/scramjet 2>$null || true",
 		"build": "node build.js",
 		"vercel-build": "npm run build"
 	},
@@ -20,7 +21,7 @@
 	"dependencies": {
 		"@mercuryworkshop/bare-mux": "^2.1.7",
 		"@mercuryworkshop/libcurl-transport": "^1.5.2",
-		"@mercuryworkshop/scramjet": "latest"
+		"@mercuryworkshop/scramjet": "git+https://github.com/MercuryWorkshop/scramjet.git#v2"
 	},
 	"devDependencies": {
 		"@fastify/static": "^8.2.0",
