@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+    <h1>Script Loading Test</h1>
+    <div id="results"></div>
+    
+    <script>
+        const results = document.getElementById('results');
+        
+        // Test 1: Load scramjet
+        const script1 = document.createElement('script');
+        script1.src = '/scram/scramjet.all.js';
+        script1.onload = () => {
+            results.innerHTML += '<p>✓ Scramjet loaded</p>';
+            results.innerHTML += '<p>$scramjetLoadController: ' + (typeof $scramjetLoadController) + '</p>';
+            
+            // Test 2: Load baremux
+            const script2 = document.createElement('script');
+            script2.src = '/baremux/index.js';
+            script2.onload = () => {
+                results.innerHTML += '<p>✓ Baremux loaded</p>';
+                results.innerHTML += '<p>BareMux: ' + (typeof BareMux) + '</p>';
+                if (typeof BareMux !== 'undefined') {
+                    results.innerHTML += '<p>BareMux.BareMuxConnection: ' + (typeof BareMux.BareMuxConnection) + '</p>';
+                }
+            };
+            script2.onerror = (e) => {
+                results.innerHTML += '<p>✗ Baremux failed to load: ' + e + '</p>';
+            };
+            document.head.appendChild(script2);
+        };
+        script1.onerror = (e) => {
+            results.innerHTML += '<p>✗ Scramjet failed to load: ' + e + '</p>';
+        };
+        document.head.appendChild(script1);
+    </script>
+</body>
+</html>
