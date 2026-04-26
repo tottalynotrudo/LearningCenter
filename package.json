@@ -1,0 +1,33 @@
+{
+	"name": "rynnet",
+	"version": "1.0.0",
+	"description": "Rynnet - Advanced Web Proxy",
+	"type": "module",
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"scripts": {
+		"dev": "node src/index.js",
+		"build": "node build.js",
+		"vercel-build": "npm run build"
+	},
+	"keywords": [
+		"proxy",
+		"rynnet"
+	],
+	"author": "",
+	"license": "MIT",
+	"dependencies": {
+		"@mercuryworkshop/bare-mux": "^2.1.7",
+		"@mercuryworkshop/libcurl-transport": "^1.5.2",
+		"@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-2.0.0-alpha.tgz"
+	},
+	"devDependencies": {
+		"@fastify/static": "^8.2.0",
+		"@mercuryworkshop/wisp-js": "^0.4.1",
+		"eslint": "^9.13.0",
+		"fastify": "^5.4.0",
+		"prettier": "^3.3.3",
+		"ws": "^8.18.3"
+	}
+}
